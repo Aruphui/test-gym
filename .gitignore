@@ -1,0 +1,11 @@
+node_modules/
+.vercel/
+.DS_Store
+```
+
+Performance Considerations:
+- Compress images
+- Minimize CSS and JavaScript
+- Use efficient hosting like Vercel's global CDN
+
+Would you like me to elaborate on any of these steps or help you with specific deployment configurations?
