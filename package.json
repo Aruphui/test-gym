@@ -1,0 +1,9 @@
+{
+    "name": "bhadrak-health-club",
+    "version": "1.0.0",
+    "description": "Bhadrak Health Club Website",
+    "main": "index.html",
+    "scripts": {
+      "start": "npx serve public"
+    }
+  }

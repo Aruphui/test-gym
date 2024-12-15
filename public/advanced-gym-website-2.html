@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhadrak Health Club</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --dark-bg: #1e2433;
+            --light-bg: #f4f7f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--light-bg);
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: rgba(30, 36, 51, 0.9);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(52,152,219,0.8), rgba(46,204,113,0.8)),
+                        url('https://images.unsplash.com/photo-1571019613454-1cb1ebe5a91d');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .features, .programs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            padding: 80px 5%;
+            background-color: white;
+        }
+
+        .feature-card, .program-card {
+            background-color: var(--light-bg);
+            padding: 30px;
+            text-align: center;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .feature-card:hover, .program-card:hover {
+            transform: scale(1.05);
+        }
+
+        .feature-card i, .program-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .about-section {
+            display: flex;
+            align-items: center;
+            padding: 80px 5%;
+            background-color: var(--dark-bg);
+            color: white;
+        }
+
+        .about-content {
+            flex: 1;
+            padding-right: 50px;
+        }
+
+        .about-image {
+            flex: 1;
+            text-align: right;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            border-radius: 15px;
+        }
+
+        .contact-section {
+            background-color: var(--light-bg);
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .contact-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            flex: 1;
+        }
+
+        @media (max-width: 768px) {
+            .features, .programs, .about-section {
+                grid-template-columns: 1fr;
+                flex-direction: column;
+            }
+
+            .about-section {
+                text-align: center;
+            }
+
+            .about-content, .about-image {
+                flex: auto;
+                padding: 0;
+            }
+
+            .contact-info {
+                flex-direction: column;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .navbar {
+                flex-direction: column;
+                padding: 15px;
+            }
+
+            .nav-links {
+                margin-top: 20px;
+            }
+
+            .nav-links li {
+                margin: 0 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="logo">Bhadrak Health Club</a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#programs">Programs</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Transform Your Body, Elevate Your Life</h1>
+            <p>Join our state-of-the-art fitness community and unlock your true potential with personalized training and cutting-edge facilities</p>
+            <a href="https://wa.me/+919090609046?text=I'm%20interested%20in%20joining%20Bhadrak%20Health%20Club" 
+               target="_blank" 
+               class="btn">
+                <i class="fab fa-whatsapp"></i> Join Now
+            </a>
+        </div>
+    </section>
+
+    <section class="about-section" id="about">
+        <div class="about-content">
+            <h2>About Bhadrak Health Club</h2>
+            <p>Founded in 2020, Bhadrak Health Club is more than just a gym - it's a comprehensive fitness ecosystem designed to transform your physical and mental well-being. Our mission is to provide a supportive, motivational environment where individuals of all fitness levels can achieve their health goals.</p>
+            <br>
+            <p>With state-of-the-art equipment, expert trainers, and a holistic approach to fitness, we're committed to helping you become the best version of yourself.</p>
+        </div>
+        <div class="about-image">
+            <img src="logo.JPG" alt="Bhadrak Health Club Interior">
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="feature-card">
+            <i class="fas fa-dumbbell"></i>
+            <h3>Modern Equipment</h3>
+            <p>Equipped with latest international-standard fitness machines and free weights to support comprehensive workout routines</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-user-friends"></i>
+            <h3>Expert Trainers</h3>
+            <p>Certified professional trainers with personalized fitness plans tailored to individual body types and health goals</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-file-invoice"></i>
+            <h3>Flexible Memberships</h3>
+            <p>Affordable and flexible membership plans with multiple options to suit different fitness needs and budgets</p>
+        </div>
+    </section>
+
+    <section class="programs" id="programs">
+        <div class="program-card">
+            <i class="fas fa-running"></i>
+            <h3>Weight Loss Program</h3>
+            <p>Comprehensive weight management program with personalized diet and exercise plans</p>
+        </div>
+        <div class="program-card">
+            <i class="fas fa-basketball-ball"></i>
+            <h3>Strength Training</h3>
+            <p>Advanced muscle building and strength enhancement programs for all fitness levels</p>
+        </div>
+        <div class="program-card">
+            <i class="fas fa-heartbeat"></i>
+            <h3>Cardio Fitness</h3>
+            <p>High-intensity cardio sessions to improve cardiovascular health and endurance</p>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-info">
+            <div class="contact-card">
+                <h3>Phone</h3>
+                <p>+91 7008605681</p>
+            </div>
+            <div class="contact-card">
+                <h3>Email</h3>
+                <p>pandasumanta60@gmail.com</p>
+            </div>
+            <div class="contact-card">
+                <h3>Address</h3>
+                <p>Jagannathpur, College Chhak, Bhadrak, Odisha</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
